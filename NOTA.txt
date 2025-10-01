@@ -6,39 +6,4 @@ Este es un archivo para practicar:
  y no se que mas poner XD
 
 //////////////////////////////
-RELACION 1:1
-
-Director:{
-    type:Types.ObjectId,
-    ref:"Escuela",
-    required:true,
-    unique:true,
-}
-//Se coloca el Unique ya que el ID estará relacionado solo a una Escuela
-//Director solo puede tener una Escuela & una Escuela solo puede pertenecer a un Director
-
-//////////////////////////////
-RELACION 1:N
-
-Alumno:{
-    type: Types.ObjectId,
-    ref:"Escuela"
-    required:true,
-}
-//No se coloca el Unique porque:
-//Un Alumno puede tener una Escuela, pero una Escuela puede tener muchos Alumnos
-
-//////////////////////////////
-RELACION M:M
-
-Profesor:{
-    type: [Types.ObjectId],
-    ref:"Escuela",
-    required:true
-}
-//Un profesor puede tener muchas escuelas
-//Es por eso que en la DB de una Escuela puedo añadir:
-//
-//Profesores: { id:1,2,3,4,5 }
-//
 //////////////////////////////

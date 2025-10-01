@@ -21,7 +21,6 @@ const AssetSchema = new Schema(
     acquisitionDate: { type: Date, required: true },
     acquisitionValue: { type: Number, required: true, min: 0 },
     //
-    // ! FALTA COMPLETAR ACA
     //Se coloca aca porque:
     //es donde nosotros "cargaremos" el ID del User al cual le pertenecerá
     //Y encima es el contrario de donde irá el VIRTUAL
@@ -29,6 +28,11 @@ const AssetSchema = new Schema(
       type: Types.ObjectId,
       ref: "User",
     },
+    category:{ //Aca voy a "Cargar" las Categorys al crear una Assets
+      type:[Types.ObjectId],
+      reg:"Category",
+      required:true
+    }
   },
   { timestamps: true }
 );

@@ -44,8 +44,14 @@ const UserSchema = new Schema(
       },
     },
   },
+  { toJSON: { virtuals: true } },
   { timestamps: true }
 );
-// ! FALTA COMPLETAR ACA
+//
+UserSchema.virtual("assets", {
+  ref: "Assets",
+  localField: "_id",
+  foreignField: "responsible",
+});
 
 export const UserModel = model("User", UserSchema);
